@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import background from './pattern-bg.png';
+import IpInformation from './IpInformation.js'
+import IpSearch from './IpSearch.js'
+
+import Map from './Map.js'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="flex flex-col justify-center items-center bg-yellow-200 h-screen">
+      <img className="w-screen" src={background} />
+      <IpSearch />
+      {/* <div className="my-80"> */}
+
+      <IpInformation />
+      {/* </div> */}
+      <Map />
+    </div >
   );
 }
 
