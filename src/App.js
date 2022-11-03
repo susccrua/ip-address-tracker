@@ -7,45 +7,15 @@ import IpSearch from './IpSearch.js'
 import Map from './Map.js'
 
 function App() {
-  // const [data, setData] = useState({});
   const [ipAddress, setIpAddress] = useState('');
-  const [position, setPosition] = useState([0, 0]);
-  const [data, setData] = useState({});
-
-
-  // fetching the GET route from the Express server which matches the GET route from server.js
-
-
-  // useEffect(() => {
-  //   const callBackendAPI = async () => {
-  //     const response = await fetch('/getLocation', { headers: { ipAddress } });
-  //     const body = await response.json();
-
-  //     if (response.status !== 200) {
-  //       throw Error(body.message)
-  //     }
-  //     return body;
-  //   }
-  //   callBackendAPI()
-  //     .then(res => {
-  //       setData(res)
-  //       console.log(res)
-  //     })
-  //     .catch(err => console.log(err));
-
-
-  // }, [])
-
-
+  const [position, setPosition] = useState([-32, 58]);
 
   return (
-    <div className="flex flex-col">
-      <div>{data.title}</div>
+    <div className="flex flex-col font-rubik">
+      <h1 className="absolute z-20 self-center text-3xl mt-6 text-white font-bold">IP Address Tracker</h1>
       <div className="flex flex-col justify-center items-center bg-yellow-200 z-10 top-0">
-        <img className="h-1/3 " alt="bg" src={background} />
+        <img className="w-auto h-1/2 lg:h-1/3 w-full" alt="bg" src={background} />
         <IpSearch setIpAddress={setIpAddress} />
-        {/* <div className="my-80"> */}
-
         <IpInformation ipAddress={ipAddress} setPosition={setPosition} />
       </div >
       <div className="z-0">
