@@ -3,12 +3,8 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 
 function Map(props) {
   const { position } = props;
-  // const map = useMap();
 
-  // useEffect(() => {
-  //   map.setView(position)
-  // }, [position, map])
-
+  console.log(position);
   return (
     <MapContainer center={position} zoom={13} style={{ height: '100vh', width: '100wh' }} scrollWheelZoom={true}>
       <TileLayer
@@ -17,12 +13,22 @@ function Map(props) {
       />
       <Marker position={position}>
         <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-    </Popup>
+          {"Latitude: " + position[0]}
+        </Popup>
       </Marker>
+      <MapControl position={position} />
     </MapContainer>
 
   );
+}
+
+function MapControl(props) {
+  const { position } = props;
+  const map = useMap();
+  useEffect(() => {
+    console.log("panning")
+    map.panTo(position);
+  }, [position])
 }
 
 export default Map;

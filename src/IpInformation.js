@@ -35,7 +35,7 @@ function IpInformation(props) {
       try {
         const response = await fetch(url);
         const json = await response.json();
-        console.log(json);
+        console.log("setting data and postition" + json);
         setData(json)
         setPosition([json.location.lat, json.location.lng])
 
@@ -49,6 +49,8 @@ function IpInformation(props) {
 
 
   }, [ipAddress, setPosition])
+
+
 
 
   return (
